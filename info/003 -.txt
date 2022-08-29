@@ -1,0 +1,15 @@
+Список необходимых плагинов:
+
+All Autocomplete
+Auto Close Tag
+Auto Complete Tag
+Auto Rename Tag
+Code Runner
+JavaScript (ES6) code snippets
+Live Server
+Multiple clipboards for VSCode
+Sass 
+Easy Less
+Theme - Oceanic Next (опционально)
+vscode-icons
+WordPress Snippets
