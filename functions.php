@@ -31,4 +31,12 @@
     add_theme_support('custom-logo');
     // add_theme_support('post-thumbnails');
     // add_theme_support('menus');
+
+    function format_date($date) {
+        $arr = array_reverse(explode('-', explode(' ', $date)[0]));
+        return join('.', $arr);
+    };
+    // add_action('get_date', 'format_date');
+    
+
 ?>

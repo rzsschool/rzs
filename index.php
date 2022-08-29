@@ -72,7 +72,7 @@
                     <i class="flaticon-<?php the_field('class_name_icon') ?> h1 font-weight-normal text-primary mb-3"></i>
                     <div class="pl-4">
                         <h4><?php the_title() ?></h4>
-                        <p class="m-0"><?php echo $post->post_content; ?></p>
+                        <p class="m-0"><?php the_content(); ?></p>
                         <?php //echo get_field('mass') ?>
                     </div>
                 </div>
@@ -203,10 +203,10 @@
             <div class="testimonial-item px-3">
                 <div class="bg-light shadow-sm rounded mb-4 p-4">
                     <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                    <?php echo $post->post_content; ?>
+                    <?php the_content(); ?>
                 </div>
                 <div class="d-flex align-items-center">
-                    <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial-1.jpg" style="width: 70px; height: 70px;"
+                    <img class="rounded-circle" src="<?php the_field('photo'); ?>" style="width: 70px; height: 70px;"
                          alt="Image">
                     <div class="pl-3">
                         <h5><?php the_title(); ?></h5>
@@ -272,7 +272,22 @@
 
         <!-- <h2 class="text-center">Нажіль нічого не знайдено :(</h2> -->
 
+
         <div class="row pb-3">
+<?php 
+    $posts = get_posts( array(
+        'numberposts' => 3,
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        'post_type'   => 'post',
+        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+    ) );
+    global $post;
+
+    foreach( $posts as $post ){
+        setup_postdata( $post );
+        // print_r($post);
+?>
 
             <div class="col-lg-4 mb-4">
                 <div class="card border-0 shadow-sm mb-2">
@@ -286,25 +301,30 @@
                     <!-- {% endwith %} -->
 
                     <div class="card-body bg-light text-center p-4">
-                        <h4 class="">оце так</h4>
+                        <h4 class=""><?php the_title(); ?></h4>
                         <div class="d-flex justify-content-center ">
                             <small class="mr-3"><i class="fa fa-user text-primary"></i> Автор</small>
-                            <small class="mr-3"><i class="fa fa-folder text-primary"></i> Привітання</small>
+                            <small class="mr-3">
+                                <i class="fa fa-folder text-primary"></i> 
+                                <?php echo get_the_category($post->ID)[0]->name?>
+                            </small>
                         </div>
                         <div class="mb-3">
-                            <small class="mr-3"><i class="fa fa-calendar-day text-primary"></i> 01.20.2002</small>
+                            <small class="mr-3"><i class="fa fa-calendar-day text-primary"></i> 
+                            <?php echo format_date($post->post_date); ?></small>
                             <i class="fa-solid fa-calendar-days"></i>
                         </div>
-                        <div>шо то напевно дуже цікаве</div>
+                        <div><?php echo wp_strip_all_tags(get_the_content()); ?></div>
                         <a href="#" class="btn btn-primary px-4 mx-auto my-2">Читати далі</a>
                     </div>
                 </div>
             </div>
 
+<?php
+}
+    wp_reset_postdata();
+?>
         </div>
-
-
-
     </div>
 </div>
 <!-- Blog End -->
