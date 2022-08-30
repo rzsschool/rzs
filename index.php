@@ -34,7 +34,7 @@
         setup_postdata( $post );
 ?>
 
-<div class="container alert alert-<?php echo the_field('style'); ?>" role="alert">
+<div class="container alert alert-<?php the_field('style'); ?>" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -57,10 +57,8 @@
 <?php 
     $posts = get_posts( array(
         'numberposts' => -1,
-        // 'orderby'     => 'meta_mass',
-        // 'order'       => 'ASC',
         'post_type'   => 'facility',
-        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        'suppress_filters' => true,
     ) );
     global $post;
 
@@ -119,6 +117,25 @@
     </div>
 </div>
 {% endif %} -->
+
+<?php 
+    $posts = get_posts( array(
+        'numberposts'   => -1,
+        // 'orderby'     => 'date',
+        // 'order'       => 'ASC',
+        'meta_key'		=> 'is_administration',
+	    'meta_value'	=> true,
+        'meta_key'		=> 'is_working',
+	    'meta_value'	=> true,
+        'post_type'     => 'person',
+        'suppress_filters' => true,
+    ) );
+    global $post;
+
+    if ($posts){
+?>
+
+
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center pb-2">
@@ -127,10 +144,14 @@
         </div>
         <div class="row">
 
+<?php 
+        foreach( $posts as $post ){
+            setup_postdata( $post );
+?>
 
             <div class="col-md-6 col-lg-3 text-center team mb-5">
                 <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                    <img class="img-fluid w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/user.png" alt="administration">
+                    <img class="img-fluid w-100" src="<?php the_field('photo'); ?>" alt="administration">
                     <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
 
                         <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
@@ -138,13 +159,21 @@
 
                     </div>
                 </div>
-                <h4>П'яточкін</h4>
-                <i>Директор</i>
+                <h4><?php the_title(); ?></h4>
+                <i><?php the_field('position'); ?></i>
             </div>
 
+<?php
+        }
+?>
         </div>
     </div>
 </div>
+<?php
+    }
+    wp_reset_postdata();
+?>
+
 <!-- Administration End -->
 
 
@@ -215,8 +244,8 @@
                 </div>
             </div>
 <?php
-}
-    wp_reset_postdata();
+    }
+        wp_reset_postdata();
 ?>
 
         </div>
@@ -232,9 +261,6 @@
             <h1 class="mb-4">Останні новини</h1>
         </div>
         
-        
-
-
         <!-- {% if news.count == 0 %}
         <h2 class="text-center">Нажіль нічого не знайдено :(</h2>
         {% else %}
@@ -287,42 +313,60 @@
     foreach( $posts as $post ){
         setup_postdata( $post );
         // print_r($post);
+        $fields = get_fields($post);
 ?>
-
             <div class="col-lg-4 mb-4">
                 <div class="card border-0 shadow-sm mb-2">
-
-                    <!-- {% with img_obj=post.imageofpost_set.first %} -->
-                    <!-- {% if img_obj %} -->
-                    <img class="card-img-top mb-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/portfolio-5.jpg" alt="">
+<?php 
+        $thumbnail = get_the_post_thumbnail_url();
+        $categories = get_the_category($post->ID);
+        if ($thumbnail) {
+?>
+                    <img class="card-img-top mb-2" src="<?php echo $thumbnail ?>" alt="post_img">
+<?php
+        } else {
+            $image = get_field('image', $categories[0]);
+?>
+                    <img class="card-img-top mb-2" src="<?php echo $image ?>" alt="post_img">
+<?php
+        }
+?>
                     <!-- {% else %}
                     <img class="card-img-top mb-2" src="{{ post.categories.image.url }}" alt="">
                     {% endif %} -->
                     <!-- {% endwith %} -->
-
+        <?php ?>
                     <div class="card-body bg-light text-center p-4">
                         <h4 class=""><?php the_title(); ?></h4>
                         <div class="d-flex justify-content-center ">
-                            <small class="mr-3"><i class="fa fa-user text-primary"></i> Автор</small>
+<?php
+        if ($fields['author']) {
+            $full_name = $fields['author']->post_title;
+?>
+                            <small class="mr-3"><i class="fa fa-user text-primary"></i> <?php echo get_surname_and_initials($full_name); ?></small>
+<?php
+        }
+?>
                             <small class="mr-3">
                                 <i class="fa fa-folder text-primary"></i> 
-                                <?php echo get_the_category($post->ID)[0]->name?>
+                                <?php echo $categories[0]->name?>
                             </small>
                         </div>
                         <div class="mb-3">
                             <small class="mr-3"><i class="fa fa-calendar-day text-primary"></i> 
-                            <?php echo format_date($post->post_date); ?></small>
+                            <?php echo get_format_date($post->post_date); ?></small>
                             <i class="fa-solid fa-calendar-days"></i>
                         </div>
-                        <div><?php echo wp_strip_all_tags(get_the_content()); ?></div>
-                        <a href="#" class="btn btn-primary px-4 mx-auto my-2">Читати далі</a>
+                        
+                        <div><?php echo get_preview_content(get_the_content()); ?></div>
+                        <a href="<?php the_permalink(); ?>" class="btn btn-primary px-4 mx-auto my-2">Читати далі</a>
                     </div>
                 </div>
             </div>
 
 <?php
-}
-    wp_reset_postdata();
+    }
+        wp_reset_postdata();
 ?>
         </div>
     </div>

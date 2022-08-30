@@ -9,7 +9,7 @@
         wp_enqueue_style('libraries-stylesheetp', get_template_directory_uri() . '/assets/lib/owlcarousel/assets/owl.carousel.min.css');
         wp_enqueue_style('customized-bootstrap', get_template_directory_uri() . '/assets/styles/style.min.css');
         wp_enqueue_style('rzs-style', get_stylesheet_uri());
-        
+        wp_enqueue_style('categories', get_template_directory_uri() . '/assets/styles/categories.css');
         // add ...assets/styles/main.min.css
         // wp_enqueue_style('header-style', get_template_directory_uri( ) . '/assets/styles/main.min.css');
     };
@@ -28,15 +28,38 @@
     // bloginfo($show:string ) 
     // bloginfo('template_url') 
     
-    add_theme_support('custom-logo');
-    // add_theme_support('post-thumbnails');
-    // add_theme_support('menus');
-
-    function format_date($date) {
+    // my function
+    function get_format_date($date) {
         $arr = array_reverse(explode('-', explode(' ', $date)[0]));
         return join('.', $arr);
     };
+    function get_surname_and_initials($full_name) {
+        $arr = explode(' ', $full_name);
+        if (count($arr) >= 3) {
+            return $arr[0] . ' ' . mb_strimwidth($arr[1], 0, 1) . '. ' . mb_strimwidth($arr[2], 0, 1) . '. ';
+        }
+        return $date;
+    };
+    function get_preview_content($text) {
+        $text = sanitize_text_field($text);
+        // $text = wp_strip_all_tags($text);
+        // $text = strip_tags($text);
+        // $text = wp_filter_nohtml_kses($text);
+        if (strlen($text) > 300) {
+            $text = str_replace('\r', ' ', $text);
+            return substr($text, 0, 300) . '...';
+        }
+        return $text;
+    }
     // add_action('get_date', 'format_date');
     
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+    // add_theme_support( 'timeline' );
 
+    register_nav_menus(array(
+        'top'    => 'Верхнее меню',    //Название месторасположения меню в шаблоне
+        'bottom' => 'Нижнее меню'      //Название другого месторасположения меню в шаблоне
+    ));
 ?>

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 <!-- Navbar Start -->
 <div class="container-fluid bg-light position-relative shadow">
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
@@ -23,10 +24,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav font-weight-bold mx-auto py-0" id="mainMenu">
-                <a href="index.html" class="nav-item nav-link">Головна</a>
+            <!-- <div class="navbar-nav font-weight-bold mx-auto py-0" id="mainMenu">
+                <li><a href="index.html" class="nav-item nav-link">Головна</a></li>
                 <a href="blog.html" class="nav-item nav-link">Новини</a>
-                <a href="staff.html" class="nav-item nav-link">Колектив</a>
+                <a href="staff.html" class="nav-item nav-link">Колектив</a> -->
+
                 <!--  <div class="nav-item dropdown">
                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                      <div class="dropdown-menu rounded-0 m-0">
@@ -34,9 +36,49 @@
                          <a href="single.html" class="dropdown-item">Blog Detail</a>
                      </div>
                  </div> -->
-            </div>
+
+            <!-- </div> -->
+<?php 
+    wp_nav_menu( array(
+
+        'menu_class'    =>'navbar-nav font-weight-bold mx-auto py-0',
+        'menu_id'       => 'mainMenu',
+        'container'     => '',
+        'link_class'     => '789456',
+        'theme_location'=>'top',
+        // 'after'=>' /'
+    ) );
+?>
             <!-- <a href="" class="btn btn-primary px-4">Join Class</a> -->
         </div>
     </nav>
+
+<?php 
+// wp_nav_menu( array(
+
+// 	'menu_class'    =>'navbar-nav font-weight-bold mx-auto py-0',
+//     'menu_id'       => 'mainMenu',
+//     'container'     => '',
+//     'link_class'     => '789456',
+// 	'theme_location'=>'top',
+// 	'after'=>' /'
+//     // 'menu'            => '',              // (string) Название выводимого меню (указывается в админке при создании меню, приоритетнее 
+// 										  // чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)
+// 	// 'container'       => 'div',           // (string) Контейнер меню. Обворачиватель ul. Указывается тег контейнера (по умолчанию в тег div)
+// 	// 'container_class' => '',              // (string) class контейнера (div тега)
+// 	// 'container_id'    => '',              // (string) id контейнера (div тега)
+// 	// 'menu_class'      => 'menu',          // (string) class самого меню (ul тега)
+// 	// 'menu_id'         => '',              // (string) id самого меню (ul тега)
+// 	// 'echo'            => true,            // (boolean) Выводить на экран или возвращать для обработки
+// 	// 'fallback_cb'     => 'wp_page_menu',  // (string) Используемая (резервная) функция, если меню не существует (не удалось получить)
+// 	// 'before'          => '',              // (string) Текст перед <a> каждой ссылки
+// 	// 'after'           => '',              // (string) Текст после </a> каждой ссылки
+// 	// 'link_before'     => '',              // (string) Текст перед анкором (текстом) ссылки
+// 	// 'link_after'      => '',              // (string) Текст после анкора (текста) ссылки
+// 	// 'depth'           => 0,               // (integer) Глубина вложенности (0 - неограничена, 2 - двухуровневое меню)
+// 	// 'walker'          => '',              // (object) Класс собирающий меню. Default: new Walker_Nav_Menu
+// 	// 'theme_location'  => ''   
+// ) );
+?>
 </div>
 <!-- Navbar End -->
