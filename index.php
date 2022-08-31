@@ -26,7 +26,7 @@
         'meta_key'		=> 'is_published',
 	    'meta_value'	=> True,
         'post_type'   => 'alerts',
-        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        'suppress_filters' => true,
     ) );
     global $post;
 
@@ -154,9 +154,35 @@
                     <img class="img-fluid w-100" src="<?php the_field('photo'); ?>" alt="administration">
                     <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
 
+            <?php $social_link = get_field('facebook'); 
+                if ($social_link) {
+            ?>
                         <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="№" target="_blank"><i class="fab fa-{{ item.class_name }}"></i></a>
+                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-facebook-f"></i>
+                        </a>
+            <?php
+                }
+            ?>
 
+            <?php $social_link = get_field('youtube'); 
+                if ($social_link) {
+            ?>
+                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-youtube"></i>
+                        </a>
+            <?php
+                }
+            ?>
+
+            <?php $social_link = get_field('blogger'); 
+                if ($social_link) {
+            ?>
+                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-blogger-b"></i>
+                        </a>
+            <?php
+                }
+            ?>
                     </div>
                 </div>
                 <h4><?php the_title(); ?></h4>

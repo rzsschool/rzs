@@ -20,21 +20,35 @@
         <div class="col-lg-8">
             <div class="d-flex flex-column text-left mb-3">
                 <p class="section-title pr-5"><span class="pr-2">Сторінка новини</span></p>
+
                 <h1 class="mb-3"><?php the_title() ?></h1>
                 <div class="d-sm-flex">
-                    <p class="mr-3"><i class="fa fa-user text-primary"></i> {{ post.author.get_initials }}</p>
+                    <p class="mr-3">
+                        <i class="fa fa-user text-primary"></i>
+                        <?php $author = get_field('author') ; ?>
+                        <?php echo get_surname_and_initials($author->post_title) ; ?>
+                    </p>
 <?php $category = get_the_category($post->ID)[0]; ?>
                     <p class="mr-3"><i class="fa fa-folder text-primary"></i> <?php echo $category->name; ?></p>
-                    <p class="mr-3"><i class="fa fa-calendar-day text-primary"></i> <?php echo format_date($post->post_date); ?></p>
+                    <p class="mr-3"><i class="fa fa-calendar-day text-primary"></i> <?php echo get_format_date($post->post_date); ?></p>
                 </div>
             </div>
             <div class="mb-5">
+<?php
+                $thumbnail = get_the_post_thumbnail_url();
+                if ($thumbnail) {
+?>
+                <img class="img-fluid rounded w-100 mb-4" src="<?php echo $thumbnail ?>" alt="Image">
 
-<?php the_content(); ?>
+<?php
+                }
+?>
+                <?php the_content(); ?>
 
         </div>
             <!-- Related Post -->
-<?php 
+            
+<?php
 $related_posts = get_posts( array(
         'numberposts' => 4,
         'category'    => $category->term_id,
@@ -44,6 +58,7 @@ $related_posts = get_posts( array(
         'suppress_filters' => true,
     ) );
     global $related_post;
+    
     if (count($related_posts) > 1) {
 ?>
         <div class="mb-5 mx-n3">
@@ -82,16 +97,16 @@ $related_posts = get_posts( array(
                             <?php echo $related_post->post_title; ?>
                         </a>
                     </h5>
-
                     <div>
                         <small class="mr-3">
                             <i class="fa fa-user text-primary"></i>
-                            автор
+                            <?php $author_related_post = get_field('author', $related_post) ; ?>
+                            <?php echo get_surname_and_initials($author_related_post->post_title) ; ?>
                         </small>
                         <br>
                         <small class="mr-3">
                             <i class="fa fa-folder text-primary"></i>
-                            <?php echo format_date($related_post->post_date); ?>
+                            <?php echo get_format_date($related_post->post_date); ?>
                         </small>
                     </div>
                 </div>

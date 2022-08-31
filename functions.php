@@ -51,7 +51,7 @@
         }
         return $text;
     }
-    // add_action('get_date', 'format_date');
+    // add_action('get_date', 'get_format_date');
     
     add_theme_support('custom-logo');
     add_theme_support('post-thumbnails');
