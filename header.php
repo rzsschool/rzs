@@ -17,7 +17,7 @@
 <!-- Navbar Start -->
 <div class="container-fluid bg-light position-relative shadow">
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
-        <a href="#" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+        <a href="<?php echo get_permalink( get_page_by_path( 'main' ) ); ?>" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="logo">
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">

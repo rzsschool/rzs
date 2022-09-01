@@ -13,7 +13,6 @@
 </div>
 <!-- Header End -->
 
-
 <!-- Detail Start -->
 <div class="container pb-5">
     <div class="row pt-5">
@@ -46,7 +45,7 @@
                 <?php the_content(); ?>
 
         </div>
-            <!-- Related Post -->
+<!-- Related Post -->
             
 <?php
 $related_posts = get_posts( array(
@@ -126,20 +125,21 @@ $related_posts = get_posts( array(
 <div class="col-lg-4 mt-5 mt-lg-0">
     <!-- Author Bio -->
     <div class="d-flex flex-column text-center bg-primary rounded mb-5 py-5 px-4">
+        <?php $fields = get_fields($author) ?>
+        <img src="<?php echo $fields['photo'] ?>" class="img-fluid rounded-circle mx-auto mb-3" style="width: 100px;" alt="author">
 
-        <img src="{{ post.author.photo.url }}" class="img-fluid rounded-circle mx-auto mb-3" style="width: 100px;" alt="author">
-
-        {% with author=post.author %}
         <h3 class="text-secondary mb-3">
-            <a href="{% url 'staff_detail' author.pk %}" class="text-white">
-                {{ author.get_initials }}
+            <a href="<?php echo get_permalink($author); ?>" class="text-white">
+                <?php echo get_surname_and_initials($author->post_title); ?>
             </a>
         </h3>
-        {% if author.life_credo %}
-        <p class="text-white m-0">{{ author.life_credo }}</p>
-        {% endif %}
-        {% endwith %}
-
+<?php
+            if ($fields['life_credo']) { 
+?>
+        <p class="text-white m-0"><?php echo $fields['life_credo']; ?></p>
+<?php
+            }
+?>
     </div>
 
             <!-- Keyword -->
