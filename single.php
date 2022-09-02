@@ -166,7 +166,7 @@ $related_posts = get_posts( array(
 ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                         <!-- ** -->
-                        <a href="{% url 'blog' %}?cat={{ category.name }}"><?php echo $cat_item->name ?></a>
+                        <a href="<?php echo get_permalink( get_page_by_path( 'news' ) ); ?>?cat=<?php echo $cat_item->slug ?>"><?php echo $cat_item->name ?></a>
                         <span class="badge badge-primary badge-pill"><?php echo $cat_item->category_count ?></span>
                     </li>
 <?php

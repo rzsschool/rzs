@@ -177,6 +177,9 @@
         }
         return '';
     }
+    
+    
+    
     // add_action('get_date', 'get_format_date');
     
     add_theme_support('custom-logo');

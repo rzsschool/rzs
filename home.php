@@ -1,5 +1,39 @@
 <?php get_header(); ?>
+<?php 
+    // VAR
+    $is_cat = array_key_exists('cat', $_GET);
+    $cat_name = '';
+    $categories = get_categories();
+    $count_posts = 0;
+    if ($is_cat) {
+        $cat_name = get_tax_item_name($_GET['cat'], 'category');
+        $_tmp = $_GET['cat'];
+        // finding count post of category
+        foreach ($categories as $category) {
+            if ($category->slug == $_tmp) {
+                $count_posts = $category->count;
+                break;
+            } 
+        }
+    } else {
+        $count_posts = wp_count_posts('post')->publish;
+    }
 
+    $posts_per_page = 3; // MAIN CONST 
+    $page_now = 0;
+    $offset = 0;
+    if (array_key_exists('page_now', $_GET)) {
+        $page_now = intval($_GET['page_now']);
+        $offset = $posts_per_page * $page_now;
+    }
+    $host;
+    if ($is_cat) {
+        $host = get_permalink( get_page_by_path( 'news' ) ) . '?cat=' . $_GET['cat'] .'&page_now=';
+    } else {
+        $host = get_permalink( get_page_by_path( 'news' ) ) . '?page_now=';
+    }
+    
+?>
 <!-- Header Start -->
 <div class="container-fluid bg-primary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
@@ -9,10 +43,11 @@
             <span class="px-2">/</span>
             <span><a class="text-white" href="<?php echo get_permalink( get_page_by_path( 'news' ) ); ?>">Наші новини</a></span>
 <?php
-    if (array_key_exists('cat', $_GET)) {
+    if ($is_cat) {
 ?>
             <span class="px-2">/</span>
-            <span><?php echo $_GET['cat']; ?></span>
+            <span><?php echo $cat_name; ?>
+        </span>
 <?php
     }
 ?>
@@ -36,12 +71,12 @@
                 <div class="list-inline mb-4" id="portfolio-flters">
                     <a class="btn category_link m-1 category_link_active" href="<?php echo get_permalink( get_page_by_path( 'news' ) ); ?>">Всі</a>
 <?php
-    $categories = get_categories();
+    
     // print_r($post);
     global $cat_item;
     foreach( $categories as $cat_item ){
 ?>
-                    <a class="btn category_link m-1" href="<?php echo get_permalink( get_page_by_path( 'news' ) ); ?>?cat=<?php echo $cat_item->name ?>"><?php echo $cat_item->name ?></a>
+                    <a class="btn category_link m-1" href="<?php echo get_permalink( get_page_by_path( 'news' ) ); ?>?cat=<?php echo $cat_item->slug; ?>"><?php echo $cat_item->name; ?></a>
                   
 <?php
     }
@@ -61,22 +96,26 @@
                 <div class="row pb-3">
         <?php 
 
-        if (array_key_exists('cat', $_GET)) {
+        if ($is_cat) {
             $cat_id = 
             $posts = get_posts( array(
-                'numberposts' => -1,
+                'posts_per_page'   => $posts_per_page,
+                'offset'           => $offset,
+                // 'numberposts' => -1,
                 'orderby'     => 'date',
                 'order'       => 'DESC',
-                'category'    => get_tax_item_id($_GET, 'category'),
+                'category'    => get_tax_item_id($_GET['cat'], 'category'),
                 'post_type'   => 'post',
                 'suppress_filters' => true,
             ) );
         } else {
             $posts = get_posts( array(
-                'numberposts' => -1,
-                'orderby'     => 'date',
-                'order'       => 'DESC',
-                'post_type'   => 'post',
+                'posts_per_page'   => $posts_per_page,
+                'offset'           => $offset,
+                // 'numberposts'      => -1,
+                'orderby'          => 'date',
+                'order'            => 'DESC',
+                'post_type'        => 'post',
                 'suppress_filters' => true,
             ) );
         }
@@ -144,29 +183,7 @@
 
         <div class="col-md-12 mb-4">
             <nav aria-label="Page navigation">
-              <ul class="pagination justify-content-center mb-0">
-                  <li class="page-item {{ class_first_page }}">
-                      <a class="page-link" href="{% url 'blog' %}?page={{ previous_link }}&cat={{ active_category }}" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                  </li>
-                  {% for n in list_of_pages %}
-                  {% if n == page_number%}
-                  <li class="page-item active"><a class="page-link" href="{% url 'blog' %}?page={{ n }}&cat={{ active_category }}">{{ n }}</a></li>
-                  {% elif n == 0 %}
-                  <li class="page-item page-link">...</li>
-                  {% else %}
-                  <li class="page-item"><a class="page-link" href="{% url 'blog' %}?page={{ n }}&cat={{ active_category }}">{{ n }}</a></li>
-                  {% endif %}
-
-                  {% endfor %}
-                  <li class="page-item {{ class_last_page }}">
-                      <a class="page-link" href="{% url 'blog' %}?page={{ next_link }}&cat={{ active_category }}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                  </li>
+              <ul class="pagination justify-content-center mb-0" id="paginator">
               </ul>
             </nav>
         </div>
@@ -174,18 +191,105 @@
 </div>
 
 <!-- Blog End -->
-{% endblock %}
+<?php get_footer(); ?>
+<script>
+    window.onload=function(e){
+        let countPosts = <?php echo $count_posts; ?>;
+        let postsPerPage = <?php echo $posts_per_page; ?>;
+        let countPages = Math.ceil(countPosts / postsPerPage);//floor
+        let offset = <?php echo $offset; ?>;
+        let pageNow = <?php echo $page_now; ?> + 1;
+        let paginator = document.getElementById('paginator');
 
-{% block script %}
-    let active_category = '{{ active_category }}';
-    let children_cat = document.getElementById('portfolio-flters').children;
-    for (let i = 1; i < children_cat.length; i++) {
-        if (children_cat[i].text == active_category) {
-            children_cat[i].classList.toggle('category_link_active');
-            children_cat[0].classList.toggle('category_link_active');
-            break;
+        let host = '<?php echo $host; ?>';
+        function getListOfPages(activeN, endN) {
+            if (activeN > endN) {
+                activeN = endN;
+                console.log(activeN);
+            }
+            let arr = []
+            if (activeN <= 5){
+                for (let n = 1 ; n < activeN; n++) {
+                    arr.push(n);
+                }
+            } else {
+                arr.push(1, 2, 0, activeN - 2, activeN - 1);
+            }
+
+            if (activeN + 5 >= endN) {
+                for (let n = activeN; n < endN + 1; n++) {
+                    arr.push(n);
+                }
+            } else {
+                arr.push(activeN, activeN + 1, activeN + 2, 0, endN - 1, endN);
+            }
+            return arr;
+        }
+        
+        let arr = getListOfPages(pageNow, countPages);
+        function getElemWraperPagination(is_last=false) {
+            let elemListItem = document.createElement('li');
+            elemListItem.classList.add('page-item');
+            
+            let elemLink = document.createElement('a');
+            elemLink.classList.add('page-link');
+            
+            if (is_last) {
+                elemLink.href = host + (pageNow);
+                elemLink.innerHTML = `
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+                `;
+                if (arr[arr.length - 1] == pageNow) {
+                    elemListItem.classList.add('disabled');
+                }
+            } else {
+                elemLink.href = host + (pageNow - 2);
+                elemLink.innerHTML = `
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+                `;
+                if (pageNow == 1) {
+                    elemListItem.classList.add('disabled');
+                }
+            }
+            
+            elemListItem.appendChild(elemLink);
+            return elemListItem;
+        }
+        paginator.appendChild(getElemWraperPagination());
+        
+        for (let i = 0; i < arr.length; i++) {
+            let n = arr[i];
+            let elemListItem = document.createElement('li');
+            elemListItem.classList.add('page-item');
+            if (n == 0) {
+                elemListItem.classList.add('page-link');
+                elemListItem.textContent = "...";
+            } else {
+                if (pageNow == n) {
+                    elemListItem.classList.add('active');
+                }
+                let elemLink = document.createElement('a');
+                elemLink.classList.add('page-link');
+                elemLink.href = host + (n - 1);
+                elemLink.textContent = n;
+
+                elemListItem.appendChild(elemLink);
+            }
+            paginator.appendChild(elemListItem);
+        }
+        paginator.appendChild(getElemWraperPagination(true));
+
+        let active_category = '<?php echo $cat_name ?>';
+        console.log(active_category);
+        let children_cat = document.getElementById('portfolio-flters').children;
+        for (let i = 1; i < children_cat.length; i++) {
+            if (children_cat[i].text == active_category) {
+                children_cat[i].classList.toggle('category_link_active');
+                children_cat[0].classList.toggle('category_link_active');
+                break;
         }
     }
-{% endblock %}
-
-<?php get_footer(); ?>
+}
+</script>

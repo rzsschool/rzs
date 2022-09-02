@@ -197,7 +197,7 @@
 </div>
 <!-- Team End -->
 
-
+<?php get_footer(); ?>
 <script>
     window.onload=function(e){
         
@@ -213,5 +213,3 @@
     }
 }
 </script>
-
-<?php get_footer(); ?>
