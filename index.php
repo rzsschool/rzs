@@ -20,15 +20,12 @@
 
 <?php 
     $posts = get_posts( array(
-        'numberposts' => -1,
         'orderby'     => 'date',
-        'order'       => 'ASC',
-        'meta_key'		=> 'is_published',
-	    'meta_value'	=> True,
+        'order'       => 'DESC',
         'post_type'   => 'alerts',
         'suppress_filters' => true,
     ) );
-    global $post;
+    // global $post;
 
     foreach( $posts as $post ){
         setup_postdata( $post );
@@ -56,11 +53,12 @@
 
 <?php 
     $posts = get_posts( array(
-        'numberposts' => -1,
+        'orderby'     => 'date',
+        'order'       => 'ASC',
         'post_type'   => 'facility',
         'suppress_filters' => true,
     ) );
-    global $post;
+    // global $post;
 
     foreach( $posts as $post ){
         setup_postdata( $post );
@@ -71,7 +69,6 @@
                     <div class="pl-4">
                         <h4><?php the_title() ?></h4>
                         <p class="m-0"><?php the_content(); ?></p>
-                        <?php //echo get_field('mass') ?>
                     </div>
                 </div>
             </div>
@@ -88,17 +85,14 @@
 <!-- Administration Start -->
 <?php 
     $posts = get_posts( array(
-        'numberposts'   => -1,
-        // 'orderby'     => 'date',
-        // 'order'       => 'ASC',
+        'orderby'     => 'date',
+        'order'       => 'ASC',
         'meta_key'		=> 'is_administration',
 	    'meta_value'	=> true,
-        // 'meta_key'		=> 'is_working',
-	    // 'meta_value'	=> true,
         'post_type'     => 'person',
         'suppress_filters' => true,
     ) );
-    global $post;
+    // global $post;
 
     if ($posts){
 ?>
@@ -116,9 +110,6 @@
         foreach( $posts as $post ){
             setup_postdata( $post );
             $fields = get_fields($post);
-            if (!$fields['is_working']) {
-                continue;
-            }
 ?>
 
             <div class="col-md-6 col-lg-3 text-center team mb-5">
@@ -197,11 +188,12 @@
 
 <?php 
     $posts = get_posts( array(
-        'numberposts' => -1,
+        'orderby'     => 'date',
+        'order'       => 'ASC',
         'post_type'   => 'testimonial',
-        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        'suppress_filters' => true,
     ) );
-    global $post;
+    // global $post;
 
     foreach( $posts as $post ){
         setup_postdata( $post );
@@ -243,10 +235,10 @@
         'numberposts' => 3,
         'orderby'     => 'date',
         'order'       => 'DESC',
-        'post_type'   => 'post',
-        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        // 'post_type'   => 'post',
+        'suppress_filters' => true,
     ) );
-    global $post;
+    // global $post;
 
     foreach( $posts as $post ){
         setup_postdata( $post );

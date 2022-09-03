@@ -94,14 +94,12 @@
                     <h1 class="mb-4">Останні новини</h1>
                 </div>
                 <div class="row pb-3">
-        <?php 
-
+<?php 
         if ($is_cat) {
             $cat_id = 
             $posts = get_posts( array(
                 'posts_per_page'   => $posts_per_page,
                 'offset'           => $offset,
-                // 'numberposts' => -1,
                 'orderby'     => 'date',
                 'order'       => 'DESC',
                 'category'    => get_tax_item_id($_GET['cat'], 'category'),
@@ -112,7 +110,6 @@
             $posts = get_posts( array(
                 'posts_per_page'   => $posts_per_page,
                 'offset'           => $offset,
-                // 'numberposts'      => -1,
                 'orderby'          => 'date',
                 'order'            => 'DESC',
                 'post_type'        => 'post',
@@ -126,34 +123,34 @@
                 setup_postdata( $post );
                 // print_r($post);
                 $fields = get_fields($post);
-        ?>
+?>
                     <div class="col-lg-4 mb-4">
                         <div class="card border-0 shadow-sm mb-2">
-        <?php 
+<?php 
                 $thumbnail = get_the_post_thumbnail_url();
                 $categories = get_the_category($post->ID);
                 if ($thumbnail) {
-        ?>
+?>
                             <img class="card-img-top mb-2" src="<?php echo $thumbnail ?>" alt="post_img">
-        <?php
+<?php
                 } else {
                     $image = get_field('image', $categories[0]);
-        ?>
+?>
                             <img class="card-img-top mb-2" src="<?php echo $image ?>" alt="post_img">
-        <?php
+<?php
                 }
-        ?>
+?>
                             <div class="card-body bg-light text-center p-4">
                                 <h4 class=""><?php the_title(); ?></h4>
                                 <div class="d-flex justify-content-center ">
-        <?php
+<?php
                 if ($fields['author']) {
                     $full_name = $fields['author']->post_title;
-        ?>
+?>
                                     <small class="mr-3"><i class="fa fa-user text-primary"></i> <?php echo get_surname_and_initials($full_name); ?></small>
-        <?php
+<?php
                 }
-        ?>
+?>
                                     <small class="mr-3">
                                         <i class="fa fa-folder text-primary"></i> 
                                         <?php echo $categories[0]->name?>
@@ -171,10 +168,10 @@
                         </div>
                     </div>
 
-        <?php
+<?php
             }
                 wp_reset_postdata();
-        ?>
+?>
                 </div>
             </div>
         </div>

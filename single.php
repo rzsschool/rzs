@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <!-- Header Start -->
-<div class="container-fluid bg-primary mb-5">
+<!-- <div class="container-fluid bg-primary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
         <h3 class="display-3 font-weight-bold text-white">Сторінка Новини</h3>
         <div class="d-inline-flex text-white">
@@ -10,7 +10,7 @@
             <p class="m-0">Blog Detail</p>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Header End -->
 
 <!-- Detail Start -->
@@ -129,16 +129,24 @@ $related_posts = get_posts( array(
         <img src="<?php echo $fields['photo'] ?>" class="img-fluid rounded-circle mx-auto mb-3" style="width: 100px;" alt="author">
 
         <h3 class="text-secondary mb-3">
+<?php 
+    if ($fields['is_working']) {
+?>
             <a href="<?php echo get_permalink($author); ?>" class="text-white">
                 <?php echo get_surname_and_initials($author->post_title); ?>
             </a>
+<?php
+    } else {
+        echo get_surname_and_initials($author->post_title);;
+    }
+?>
         </h3>
 <?php
-            if ($fields['life_credo']) { 
+        if ($fields['life_credo']) { 
 ?>
         <p class="text-white m-0"><?php echo $fields['life_credo']; ?></p>
 <?php
-            }
+        }
 ?>
     </div>
 

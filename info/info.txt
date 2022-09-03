@@ -1,3 +1,6 @@
+// 'numberposts' => 4,
+// 'meta_key'		=> 'is_published',
+// 'meta_value'	=> True,
 // print_r($_REQUEST);
 
 add plagins
