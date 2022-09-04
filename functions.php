@@ -10,6 +10,7 @@
         wp_enqueue_style('customized-bootstrap', get_template_directory_uri() . '/assets/styles/style.min.css');
         wp_enqueue_style('rzs-style', get_stylesheet_uri());
         wp_enqueue_style('categories', get_template_directory_uri() . '/assets/styles/categories.css');
+        wp_enqueue_style('additional_style', get_template_directory_uri() . '/assets/styles/additional_style.css');
         // add ...assets/styles/main.min.css
         // wp_enqueue_style('header-style', get_template_directory_uri( ) . '/assets/styles/main.min.css');
     };
