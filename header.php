@@ -27,12 +27,10 @@
            
 <?php 
     wp_nav_menu( array(
-
         'menu_class'    =>'navbar-nav font-weight-bold mx-auto py-0',
         'menu_id'       => 'mainMenu',
         'container'     => '',
-        'link_class'     => '789456',
-        'theme_location'=>'top',
+        'theme_location'=> 'top',
         // 'after'=>' /'
     ) );
 ?>

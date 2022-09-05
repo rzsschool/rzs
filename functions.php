@@ -4,6 +4,7 @@
 
     function rzs_style() {
         // add ...style.css
+       
         wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css');
         wp_enqueue_style('flaticon-font', get_template_directory_uri() . '/assets/lib/flaticon/flaticon.css');
         wp_enqueue_style('libraries-stylesheetp', get_template_directory_uri() . '/assets/lib/owlcarousel/assets/owl.carousel.min.css');
@@ -12,6 +13,7 @@
         wp_enqueue_style('categories', get_template_directory_uri() . '/assets/styles/categories.css');
         wp_enqueue_style('menu', get_template_directory_uri() . '/assets/styles/menu.css');
         wp_enqueue_style('additional_style', get_template_directory_uri() . '/assets/styles/additional_style.css');
+        
         // add ...assets/styles/main.min.css
         // wp_enqueue_style('header-style', get_template_directory_uri( ) . '/assets/styles/main.min.css');
     };
@@ -180,8 +182,6 @@
         return '';
     }
     
-    
-    
     // add_action('get_date', 'get_format_date');
     
     add_theme_support('custom-logo');
@@ -190,7 +190,17 @@
     // add_theme_support( 'timeline' );
 
     register_nav_menus(array(
-        'top'    => 'Верхнее меню',    //Название месторасположения меню в шаблоне
-        'bottom' => 'Нижнее меню'      //Название другого месторасположения меню в шаблоне
+        'top'         => 'головне меню',
+        'bottom_left' => 'учням та батькам',
+        'bottom_right' => 'публічна інформація',
     ));
+
+
+    add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+    function special_nav_class ($classes, $item) {
+        if (in_array('current-menu-item', $classes) ){
+            $classes[] = 'active';
+        }
+        return $classes;
+    }
 ?>

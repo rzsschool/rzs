@@ -18,6 +18,7 @@
     //     $(window).resize(toggleNavbarMethod);
     // });
     $(document).ready(function () {
+        /* MENU */
         let menuItem = document.getElementsByClassName('menu-item-has-children');
         
         const notShow = (i=-1) => {
@@ -37,7 +38,6 @@
             let element = menuItem[index];
      
             element.firstElementChild.classList.add('dropdown-toggle');
-
             element.addEventListener('click', ()=>{
                 if (window.innerWidth <= 991) {
                     let subMenu = element.getElementsByClassName('sub-menu');
@@ -48,7 +48,22 @@
                 }
             });
         }
+        /* MENU FOTER */
+    
+        const strTagI = '<i class="fa fa-angle-right mr-2"></i>';
+        let footer = document.getElementsByClassName('footer-menu');
+        for (let index = 0; index < footer.length; index++) {
+            const footerList = footer[index].children;
+            // console.log(footerList);
+            for (let index = 0; index < footerList.length; index++) {
+                let footerLink = footerList[index];
 
+                // footerLink.appendChild(elemI);
+                let elemA = footerLink.firstChild;
+                footerLink.firstChild.innerHTML = strTagI + elemA.textContent;
+
+            }
+        }
     });
 
     $(document).ready(function () {

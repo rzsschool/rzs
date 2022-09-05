@@ -54,12 +54,24 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
-            <h3 class="text-primary mb-4">Про нас</h3>
-            <div class="d-flex flex-column justify-content-start" id="footer_menu_row1"></div>
+            <h3 class="text-primary mb-4">Учням та батькам</h3>
+<?php 
+    wp_nav_menu( array(
+        'menu_class'    =>'d-flex flex-column justify-content-start footer-menu',
+        'container'     => '',
+        'theme_location'=> 'bottom_left',
+    ) );
+?>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
-            <h3 class="text-primary mb-4">Учням та батькам</h3>
-            <div class="d-flex flex-column justify-content-start" id="footer_menu_row2"></div>
+            <h3 class="text-primary mb-4">Публічна інформація</h3>
+            <?php 
+    wp_nav_menu( array(
+        'menu_class'    =>'d-flex flex-column justify-content-start footer-menu',
+        'container'     => '',
+        'theme_location'=> 'bottom_right',
+    ) );
+?>
         </div>
     </div>
     <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);;">

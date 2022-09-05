@@ -37,7 +37,8 @@
   
 }
 .sub-menu li a:hover{
-    background: #f8f9fa;
+    /* background: #f8f9fa; */
+    background: #e8e9ea;
     color: #212529 !important;
 }
 @media (max-width: 991px){
@@ -53,4 +54,18 @@
     .menu-item-has-children:hover > ul{
         display: block;
     }
+}
+#mainMenu .menu-item.active a{
+    color: #17a2b8 !important;
+}
+/* MENU FOTER */
+.footer-menu{
+    margin: 0;
+    padding: 0;
+}
+.footer-menu li{
+    list-style-type: none;
+}
+.footer-menu li a{
+    color: #fff;
 }
