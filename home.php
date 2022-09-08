@@ -96,7 +96,7 @@
                 <div class="row pb-3">
 <?php 
         if ($is_cat) {
-            $cat_id = 
+            // $cat_id = 
             $posts = get_posts( array(
                 'posts_per_page'   => $posts_per_page,
                 'offset'           => $offset,
