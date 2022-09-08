@@ -19,7 +19,7 @@
         $count_posts = wp_count_posts('post')->publish;
     }
 
-    $posts_per_page = 3; // MAIN CONST 
+    $posts_per_page = 9; // MAIN CONST 
     $page_now = 0;
     $offset = 0;
     if (array_key_exists('page_now', $_GET)) {
@@ -35,7 +35,7 @@
     
 ?>
 <!-- Header Start -->
-<div class="container-fluid bg-primary mb-5">
+<header class="container-fluid bg-primary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
         <h3 class="display-3 font-weight-bold text-white">Наші новини</h3>
         <div class="d-inline-flex text-white">
@@ -53,9 +53,8 @@
 ?>
         </div>
     </div>
-</div>
+</header>
 <!-- Header End -->
-
 
 <!-- Blog Start -->
 <div class="container-fluid pt-5">
@@ -87,7 +86,7 @@
         <!--Categories End-->
 
         <!-- Blog Start -->
-        <div class="container-fluid pt-5">
+        <main class="container-fluid pt-5">
             <div class="container">
                 <div class="text-center pb-2">
                     <p class="section-title px-5"><span class="px-2">Наш блог</span></p>
@@ -124,7 +123,7 @@
                 // print_r($post);
                 $fields = get_fields($post);
 ?>
-                    <div class="col-lg-4 mb-4">
+                    <article class="col-lg-4 mb-4">
                         <div class="card border-0 shadow-sm mb-2">
 <?php 
                 $thumbnail = get_the_post_thumbnail_url();
@@ -166,7 +165,7 @@
                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary px-4 mx-auto my-2">Читати далі</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
 <?php
             }
@@ -174,7 +173,7 @@
 ?>
                 </div>
             </div>
-        </div>
+        </main>
         <!-- Blog End -->
 
 
@@ -186,7 +185,6 @@
         </div>
     </div>
 </div>
-
 <!-- Blog End -->
 <?php get_footer(); ?>
 <script>

@@ -1,14 +1,9 @@
-
 <!-- Footer Start -->
 <footer class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
     <div class="row pt-5">
         <div class="col-lg-3 col-md-6 mb-5">
             <h3 class="text-primary mb-4">Головна ідея</h3>
-            <!-- <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px;">
-                <i class="flaticon-043-teddy-bear"></i>
-                <img src="img/logo.svg" alt="logo">
-                <span class="text-white">KidKinder</span>
-            </a> -->
+
             <p>Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor, elitr rebum duo
                 est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.</p>
             <div class="d-flex justify-content-start mt-4">
@@ -84,16 +79,8 @@
 </footer>
 <!-- Footer End -->
 
-
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-<!-- JavaScript Libraries -->
-
-<!-- Contact Javascript File -->
-<!--    <script src="mail/jqBootstrapValidation.min.js"></script>-->
-<!--    <script src="mail/contact.js"></script>-->
 
 <?php wp_footer(); ?>
 

@@ -4,7 +4,6 @@
 
     function rzs_style() {
         // add ...style.css
-        
         wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css');
         wp_enqueue_style('flaticon-font', get_template_directory_uri() . '/assets/lib/flaticon/flaticon.css');
         wp_enqueue_style('libraries-stylesheetp', get_template_directory_uri() . '/assets/lib/owlcarousel/assets/owl.carousel.min.css');
@@ -17,14 +16,12 @@
         wp_enqueue_style('lightgallery', 'https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lightgallery.css');
         wp_enqueue_style('lg-zoom', 'https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lg-zoom.css');
         wp_enqueue_style('justifiedGallery', 'https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.css');
-        // wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css');
         wp_enqueue_style('lg-thumbnail', 'https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lg-thumbnail.css');
 
     };
 
     function rzs_scripts() {
         // add ...assets/js/main.min.js array('jquery') null=залежність, true=підкючення в кінці
-        // wp_enqueue_script('rzs-script', get_template_directory_uri() . '/assets/js/main.min.js', array(), null, true);
         wp_enqueue_script('jquery');
         wp_enqueue_script('stackpath', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js', array(), null, true);
         wp_enqueue_script('easing', get_template_directory_uri() . '/assets/lib/easing/easing.min.js', array('jquery'), null, true);
@@ -37,10 +34,6 @@
         // wp_enqueue_script('script', 'https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/plugins/zoom/lg-zoom.umd.js', array('jquery'), null, true);
         // wp_enqueue_script('script', 'https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.js', array('jquery'), null, true);
         // wp_enqueue_script('script', 'https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/plugins/thumbnail/lg-thumbnail.umd.js', array('jquery'), null, true);
-
-        // <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js"></script>
-     
-        
 
     };
     // bloginfo($show:string ) 
@@ -60,47 +53,8 @@
     };
     function get_preview_content($text) {
         $text = sanitize_text_field($text);
-        // $text = wp_strip_all_tags($text);
-        // $text = strip_tags($text);
-        // $text = wp_filter_nohtml_kses($text);
-
-        // if (strlen($text) > 300) {
-        //     $text = str_replace('\r', ' ', $text);
-        //     return substr($text, 0, 300) . '...';
-        // }
         return $text;
     }
-    // LESSONS
-    // function get_lessons( $args = '' ) {
-    //     $defaults = array( 'taxonomy' => 'lessons' );
-    //     $args     = wp_parse_args( $args, $defaults );
-    //     $args['taxonomy'] = apply_filters( 'get_categories_taxonomy', $args['taxonomy'], $args );
-    //     if ( isset( $args['type'] ) && 'link' === $args['type'] ) {
-    //     _deprecated_argument(
-    //         __FUNCTION__,
-    //         '3.0.0',
-    //         sprintf(
-    //         __( '%1$s is deprecated. Use %2$s instead.' ),
-    //     	    '<code>type => link</code>',
-    //     	    '<code>taxonomy => link_category</code>'
-    //     	)
-    //     );
-    //     $args['taxonomy'] = 'link_category';
-    //     }
-        	
-    //     $categories = get_terms( $args );
-        	
-    //     if ( is_wp_error( $categories ) ) {
-    //     	                $categories = array();
-    //     } else {
-    //         $categories = (array) $categories;
-    //     	foreach ( array_keys( $categories ) as $k ) {
-    //     	    _make_cat_compat( $categories[ $k ] );
-    //     	}
-    //     }
-        	
-    //     return $categories;
-    // }
 
     function get_the_tax( $post_id, $type_tax) {
         $categories = get_the_terms( $post_id, $type_tax );

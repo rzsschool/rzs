@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 <?php $fields = get_fields($post); ?>
 
-<?php //print_r($post); ?>
-<?php //print_r($fields); ?>
 <!-- Header Start -->
 <div class="container-fluid bg-primary mb-5">
     <div class="container">

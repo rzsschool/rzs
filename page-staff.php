@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <main class="row">
 <?php 
     // print_r($_GET);
     // echo $_GET['cat'];
@@ -157,7 +157,7 @@
             continue;
         }
 ?>
-            <div class="col-md-6 col-lg-3 text-center team mb-5">
+            <article class="col-md-6 col-lg-3 text-center team mb-5">
                 <a href="<?php echo $person->guid ?>">
                     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
                         <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="person_photo">
@@ -186,13 +186,13 @@
                 ?></i><br><?php
             }
 ?>
-            </div>
+            </article>
 <?php
     }
     wp_reset_postdata();
 ?>
 
-        </div>
+        </main>
     </div>
 </div>
 <!-- Team End -->
