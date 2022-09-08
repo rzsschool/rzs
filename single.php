@@ -16,7 +16,7 @@
 <!-- Detail Start -->
 <div class="container pb-5">
     <div class="row pt-5">
-        <div class="col-lg-8">
+        <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
             <div class="d-flex flex-column text-left mb-3">
                 <p class="section-title pr-5"><span class="pr-2">Сторінка новини</span></p>
 
@@ -122,7 +122,7 @@ $related_posts = get_posts( array(
 
 </div>
 
-<div class="col-lg-4 mt-5 mt-lg-0">
+<div class="col-lg-4 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
     <!-- Author Bio -->
     <div class="d-flex flex-column text-center bg-primary rounded mb-5 py-5 px-4">
         <?php $fields = get_fields($author) ?>

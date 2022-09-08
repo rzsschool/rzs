@@ -8,6 +8,7 @@
         wp_enqueue_style('flaticon-font', get_template_directory_uri() . '/assets/lib/flaticon/flaticon.css');
         wp_enqueue_style('libraries-stylesheetp', get_template_directory_uri() . '/assets/lib/owlcarousel/assets/owl.carousel.min.css');
         wp_enqueue_style('customized-bootstrap', get_template_directory_uri() . '/assets/styles/style.min.css');
+        wp_enqueue_style('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
         wp_enqueue_style('rzs-style', get_stylesheet_uri());
         wp_enqueue_style('categories', get_template_directory_uri() . '/assets/styles/categories.css');
         wp_enqueue_style('menu', get_template_directory_uri() . '/assets/styles/menu.css');
@@ -24,9 +25,11 @@
         // add ...assets/js/main.min.js array('jquery') null=залежність, true=підкючення в кінці
         wp_enqueue_script('jquery');
         wp_enqueue_script('stackpath', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js', array(), null, true);
+        wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true);
         wp_enqueue_script('easing', get_template_directory_uri() . '/assets/lib/easing/easing.min.js', array('jquery'), null, true);
         wp_enqueue_script('owlcarousel', get_template_directory_uri() . '/assets/lib/owlcarousel/owl.carousel.min.js', array('jquery'), null, true);
         wp_enqueue_script('isotope', get_template_directory_uri() . '/assets/lib/isotope/isotope.pkgd.min.js', array('jquery'), null, true);
+        
         wp_enqueue_script('rzs-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true);
 
         // https://www.jsdelivr.com/

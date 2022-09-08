@@ -3,7 +3,7 @@
 
 <!-- Start End -->
 <header class="container-fluid bg-primary mb-3">
-    <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 400px">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 400px" data-aos="fade-up" data-aos-duration="1000">
         <h3 class="display-3 font-weight-bold text-white"><?php the_title();?></h3>
         <div class="d-inline-flex text-white">
             <span><a class="text-white" href="<?php echo get_permalink( get_page_by_path( 'main' ) ); ?>">Головна</a></span>
@@ -18,7 +18,7 @@
 <!-- Contact Start -->
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center pb-2">
+        <div class="text-center pb-2" data-aos="fade-down" data-aos-duration="1000">
             <p class="section-title px-5"><span class="px-2">зв'язатись</span></p>
             <h1 class="mb-4">Зв’яжіться з нами з будь-якого питання</h1>
         </div>
