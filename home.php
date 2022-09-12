@@ -36,7 +36,7 @@
 ?>
 <!-- Header Start -->
 <header class="container-fluid bg-primary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px" data-aos="fade-up" data-aos-duration="1000">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px" data-aos="fade-up" >
         <h3 class="display-3 font-weight-bold text-white">Наші новини</h3>
         <div class="d-inline-flex text-white">
             <span><a class="text-white" href="<?php echo get_permalink( get_page_by_path( 'main' ) ); ?>">Головна</a></span>
@@ -59,7 +59,7 @@
 <!-- Blog Start -->
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center pb-2" data-aos="fade-down" data-aos-duration="1000">
+        <div class="text-center pb-2" data-aos="fade-down" >
             <p class="section-title px-5"><span class="px-2">Останні новини</span></p>
             <h1 class="mb-4">Останні новини нашого блогу</h1>
         </div>
@@ -88,7 +88,7 @@
         <!-- Blog Start -->
         <main class="container-fluid pt-5">
             <div class="container">
-                <div class="text-center pb-2" data-aos="fade-up" data-aos-duration="1000">
+                <div class="text-center pb-2" data-aos="fade-up" >
                     <p class="section-title px-5"><span class="px-2">Наш блог</span></p>
                     <h1 class="mb-4">Останні новини</h1>
                 </div>
@@ -117,13 +117,15 @@
         }
             
             global $post;
-
+            $i = 0;
             foreach( $posts as $post ){
                 setup_postdata( $post );
                 // print_r($post);
                 $fields = get_fields($post);
 ?>
-                    <article class="col-lg-4 mb-4" data-aos="zoom-out-up" data-aos-duration="1000">
+                    <article class="col-lg-4 mb-4" 
+                        data-aos="zoom-out-up"
+                        data-aos-duration="<?php echo 200 + 100 * ($i % 3 + 1); ?>">
                         <div class="card border-0 shadow-sm mb-2">
 <?php 
                 $thumbnail = get_the_post_thumbnail_url();
@@ -168,8 +170,9 @@
                     </article>
 
 <?php
+                $i++;
             }
-                wp_reset_postdata();
+            wp_reset_postdata();
 ?>
                 </div>
             </div>

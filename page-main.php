@@ -3,7 +3,7 @@
 <!-- Header Start -->
 <header class="container-fluid bg-primary px-0 px-md-5 mb-5 py-3" >
     <div class="row align-items-center px-3" style="margin-right: 0; padding-right: 0 !important;">
-        <div class="col-lg-6 text-center text-lg-left" data-aos="fade-right" data-aos-duration="600">
+        <div class="col-lg-6 text-center text-lg-left" data-aos="fade-right" >
         <!-- <div class="col-lg-6 text-center text-lg-left"> -->
             <h4 class="text-white mb-4 mt-5 mt-lg-0">Вас вітає</h4>
             <h1 class="text-white">Комунальний заклад "Розсошенська гімназія<br> Щербанівської сільської ради
@@ -11,7 +11,7 @@
             <!-- <p class="text-white mb-4">Ознайомитись з картою сайту</p>
             <a href="" class="btn btn-secondary mt-1 py-3 px-5">тисніть тут</a> -->
         </div>
-        <div class="col-lg-6 text-center text-lg-right" data-aos="flip-right" data-aos-duration="600">
+        <div class="col-lg-6 text-center text-lg-right" data-aos="flip-right">
         <!-- <div class="col-lg-6 text-center text-lg-right"> -->
             <img class="img-fluid " src="<?php echo get_template_directory_uri(); ?>/assets/img/header.png" alt="">
         </div>
@@ -32,7 +32,7 @@
     foreach( $posts as $post ){
         setup_postdata( $post );
 ?>
-<div class="px-3" data-aos="fade-up" data-aos-duration="600">
+<div class="px-3" data-aos="fade-up">
 <!-- <div class="px-3"> -->
     <div class="container alert alert-<?php the_field('style'); ?>" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -69,7 +69,10 @@
     foreach( $posts as $post ){
         setup_postdata( $post );
 ?>
-            <div class="col-lg-4 col-md-6 pb-1" data-aos="flip-<?php echo $left_right[$i % 2]; ?>" data-aos-duration="600">
+
+            <div class="col-lg-4 col-md-6 pb-1"
+                data-aos="flip-<?php echo $left_right[$i % 2]; ?>" 
+                data-aos-duration="<?php echo 200 + 100 * ($i % 3 + 1); ?>">
             <!-- <div class="col-lg-4 col-md-6 pb-1"> -->
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-<?php the_field('class_name_icon') ?> h1 font-weight-normal text-primary mb-3"></i>
@@ -109,7 +112,7 @@
 
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center pb-2" data-aos="flip-down" data-aos-duration="600">
+        <div class="text-center pb-2" data-aos="flip-down">
         <!-- <div class="text-center pb-2"> -->
             <p class="section-title px-5"><span class="px-2">Наша команда</span></p>
             <h1 class="mb-4">Адміністрація школи</h1>
@@ -117,12 +120,15 @@
         <div class="row">
 
 <?php 
+        $i = 0;
         foreach( $posts as $post ){
             setup_postdata( $post );
             $fields = get_fields($post);
 ?>
 
-            <div class="col-md-6 col-lg-3 text-center team mb-5" data-aos="zoom-in" data-aos-duration="600">
+            <div class="col-md-6 col-lg-3 text-center team mb-5" 
+                data-aos="zoom-in" 
+                data-aos-duration="<?php echo 200 + 100 * ($i % 4 + 1); ?>">
             <!-- <div class="col-md-6 col-lg-3 text-center team mb-5"> -->
                 <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
                     <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="administration">
@@ -176,6 +182,7 @@
             </div>
 
 <?php
+            $i++;
         }
 ?>
         </div>
@@ -191,7 +198,7 @@
 <!-- Parents Start -->
 <div class="container-fluid py-5">
     <div class="container p-0">
-        <div class="text-center pb-2" data-aos="flip-up" data-aos-duration="600">
+        <div class="text-center pb-2" data-aos="flip-up">
         <!-- <div class="text-center pb-2"> -->
             <p class="section-title px-5"><span class="px-2">Відгуки</span></p>
             <h1 class="mb-4">Що про нас чути!</h1>
@@ -238,7 +245,7 @@
 <!-- Blog Start -->
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center pb-2" data-aos="flip-left" data-aos-duration="600">
+        <div class="text-center pb-2" data-aos="flip-left">
         <!-- <div class="text-center pb-2"> -->
             <p class="section-title px-5"><span class="px-2">Наш блог</span></p>
             <h1 class="mb-4">Останні новини</h1>
@@ -253,12 +260,14 @@
         'suppress_filters' => true,
     ) );
     // global $post;
-
+    $i = 0;
     foreach( $posts as $post ){
         setup_postdata( $post );
         $fields = get_fields($post);
 ?>
-            <div class="col-lg-4 mb-4" data-aos="zoom-in-up" >
+            <div class="col-lg-4 mb-4" 
+                data-aos="zoom-in-up"
+                data-aos-duration="<?php echo 200 + 100 * ($i % 3 + 1); ?>">
             <!-- <div class="col-lg-4 mb-4"> -->
                 <div class="card border-0 shadow-sm mb-2">
 <?php 
@@ -303,6 +312,7 @@
             </div>
 
 <?php
+        $i++;
     }
         wp_reset_postdata();
 ?>

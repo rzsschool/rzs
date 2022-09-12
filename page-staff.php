@@ -2,7 +2,7 @@
 <?php //print_r( $_GET); ?>
 <!-- Header Start -->
 <div class="container-fluid bg-primary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px" data-aos="fade-up" data-aos-duration="1000">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px" data-aos="fade-up" >
         <h3 class="display-3 font-weight-bold text-white">Наш колектив</h3>
         <div class="d-inline-flex text-white">
             <span><a class="text-white" href="<?php echo get_permalink( get_page_by_path( 'main' ) ); ?>">Головна</a></span>
@@ -43,7 +43,7 @@
 <!-- Team Start -->
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center pb-2" data-aos="fade-down" data-aos-duration="1000">
+        <div class="text-center pb-2" data-aos="fade-down" >
             <p class="section-title px-5"><span class="px-2">Наша команда</span></p>
             <h1 class="mb-4">Зустрічай нашу команду</h1>
         </div>
@@ -148,7 +148,7 @@
             'suppress_filters' => true,
         ) );
     }
-    
+    $i = 0;
     foreach( $staff as $person ){
         setup_postdata( $person );
         // print_r($person);
@@ -157,7 +157,9 @@
             continue;
         }
 ?>
-            <article class="col-md-6 col-lg-3 text-center team mb-5" data-aos="zoom-in" data-aos-duration="1000">
+            <article class="col-md-6 col-lg-3 text-center team mb-5" 
+                data-aos="zoom-in"
+                data-aos-duration="<?php echo 200 + 100 * ($i % 4 + 1); ?>">
                 <a href="<?php echo $person->guid ?>">
                     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
                         <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="person_photo">
@@ -188,6 +190,7 @@
 ?>
             </article>
 <?php
+        $i++;
     }
     wp_reset_postdata();
 ?>

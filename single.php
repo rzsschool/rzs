@@ -1,22 +1,9 @@
 <?php get_header(); ?>
 
-<!-- Header Start -->
-<!-- <div class="container-fluid bg-primary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-        <h3 class="display-3 font-weight-bold text-white">Сторінка Новини</h3>
-        <div class="d-inline-flex text-white">
-            <p class="m-0"><a class="text-white" href="">Home</a></p>
-            <p class="m-0 px-2">/</p>
-            <p class="m-0">Blog Detail</p>
-        </div>
-    </div>
-</div> -->
-<!-- Header End -->
-
 <!-- Detail Start -->
 <div class="container pb-5">
     <div class="row pt-5">
-        <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-lg-8" data-aos="fade-up">
             <div class="d-flex flex-column text-left mb-3">
                 <p class="section-title pr-5"><span class="pr-2">Сторінка новини</span></p>
 
@@ -122,7 +109,7 @@ $related_posts = get_posts( array(
 
 </div>
 
-<div class="col-lg-4 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
+<div class="col-lg-4 mt-5 mt-lg-0" data-aos="fade-down">
     <!-- Author Bio -->
     <div class="d-flex flex-column text-center bg-primary rounded mb-5 py-5 px-4">
         <?php $fields = get_fields($author) ?>

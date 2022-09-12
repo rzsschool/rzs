@@ -6,11 +6,11 @@
     <div class="container">
         <div class="row py-4 align-items-center">
 
-            <div class="position-relative overflow-hidden col-lg-4 text-center" data-aos="fade-right" data-aos-duration="1000">
+            <div class="position-relative overflow-hidden col-lg-4 text-center" data-aos="fade-right">
                 <img class="img-fluid rounded-circle" src="<?php echo $fields['photo'] ?>" style="width: 300px;"
                      alt="person_photo">
             </div>
-            <div class="col-lg-8 text-white text-center" data-aos="fade-left" data-aos-duration="1000">
+            <div class="col-lg-8 text-white text-center" data-aos="flip-left" >
                 <h1 class="mb-3 mt-3 text-white"><?php the_title(); ?></h1>
 <?php
     if ($fields['is_administration']) {
