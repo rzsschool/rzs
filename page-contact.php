@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-lg-5 mb-5">
-                <p>Labore sea amet kasd diam justo amet ut vero justo. Ipsum ut et kasd duo sit, ipsum sea et erat est dolore, magna ipsum et magna elitr. Accusam accusam lorem magna, eos et sed eirmod dolor est eirmod eirmod amet.</p>
+                <p>Якщо у вас виникли запитання до вчителів, адміністрації, директора, можете поставити їх, використовуючи наявну форму. Будемо докладати всіх зусиль, аби надіслати відповідь на вказану Вами електронну пошту протягом 5 робочих днів.</p>
                 <div class="d-flex">
                     <i class="fa fa-map-marker-alt d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle" style="width: 45px; height: 45px;"></i>
                     <div class="pl-3">
