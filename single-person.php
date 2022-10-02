@@ -105,7 +105,7 @@
 <div class="container pb-5">
     <div class="row">
         <div class="col-lg-8">
-            <div class="mb-5">
+            <div class="mb-5" style="overflow-x:auto;">
                 <?php the_content() ?>
 
 <!-- Certificates block-->
