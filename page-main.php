@@ -130,13 +130,13 @@
                 data-aos="zoom-in" 
                 data-aos-duration="<?php echo 200 + 100 * ($i % 4 + 1); ?>">
             <!-- <div class="col-md-6 col-lg-3 text-center team mb-5"> -->
-				    <a href="<?php echo $post->guid ?>">qwe
+				    <a href="<?php echo $post->guid ?>">
 					     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
 				            <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="administration">
                     </div>
                     <h4><?php the_title(); ?></h4>
-                    <i><?php the_field('position'); ?></i>
 					 </a>
+					 <i><?php the_field('position'); ?></i>
             </div>
 
 <?php
