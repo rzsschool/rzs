@@ -22,3 +22,7 @@ blockquote {
     border-left: 10px solid #17A2B8;
 }
 html :where(img){ height: auto; max-width: 100% }
+
+iframe{
+	width: 100%;
+}

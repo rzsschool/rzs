@@ -130,55 +130,13 @@
                 data-aos="zoom-in" 
                 data-aos-duration="<?php echo 200 + 100 * ($i % 4 + 1); ?>">
             <!-- <div class="col-md-6 col-lg-3 text-center team mb-5"> -->
-                <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                    <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="administration">
-                    <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-
-            <?php $social_link = $fields['facebook']; 
-                if ($social_link) {
-            ?>
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-facebook-f"></i>
-                        </a>
-            <?php
-                }
-                $social_link = $fields['youtube']; 
-                if ($social_link) {
-            ?>
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-youtube"></i>
-                        </a>
-            <?php
-                }
-                $social_link = $fields['blogger'];
-                if ($social_link) {
-            ?>
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-blogger-b"></i>
-                        </a>
-            <?php
-                }
-                $social_link = $fields['instagram'];
-                if ($social_link) {
-            ?>
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-instagram"></i>
-                        </a>
-            <?php
-                }
-                $social_link = $fields['twitter'];
-                if ($social_link) {
-            ?>
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                           href="<?php echo $social_link; ?>" target="_blank"><i class="fab fa-twitter"></i>
-                        </a>
-            <?php
-                }
-            ?>
+				    <a href="<?php echo $post->guid ?>">qwe
+					     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+				            <img class="img-fluid w-100" src="<?php echo $fields['photo']; ?>" alt="administration">
                     </div>
-                </div>
-                <h4><?php the_title(); ?></h4>
-                <i><?php the_field('position'); ?></i>
+                    <h4><?php the_title(); ?></h4>
+                    <i><?php the_field('position'); ?></i>
+					 </a>
             </div>
 
 <?php
