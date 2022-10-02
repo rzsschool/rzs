@@ -50,9 +50,10 @@
                     <div>
 <?php 
         if ($fields['facebook']){
+	
 ?>          
                 <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                        href="<?php $fields['facebook'] ?>" target="_blank">
+                        href="<?php echo $fields['facebook'] ?>" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
 <?php 
@@ -60,7 +61,7 @@
         if ($fields['youtube']){
 ?>          
                 <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                        href="<?php $fields['facebook'] ?>" target="_blank">
+                        href="<?php echo $fields['youtube'] ?>" target="_blank">
                     <i class="fab fa-youtube"></i>
                 </a>
 <?php 
@@ -68,7 +69,7 @@
         if ($fields['blogger']){
 ?>          
                 <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                        href="<?php $fields['facebook'] ?>" target="_blank">
+                        href="<?php echo $fields['blogger'] ?>" target="_blank">
                     <i class="fab fa-blogger-b"></i>
                 </a>
 <?php 
@@ -76,7 +77,7 @@
         if ($fields['instagram']){
 ?>          
                 <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                        href="<?php $fields['instagram'] ?>" target="_blank">
+                        href="<?php echo $fields['instagram'] ?>" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
 <?php 
@@ -84,7 +85,7 @@
         if ($fields['twitter']){
 ?>          
                 <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                        href="<?php $fields['twitter'] ?>" target="_blank">
+                        href="<?php echo $fields['twitter'] ?>" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
 <?php 
