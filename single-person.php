@@ -105,7 +105,7 @@
 <div class="container pb-5">
     <div class="row">
         <div class="col-lg-8">
-            <div class="mb-5" style="overflow-x:auto;">
+            <div class="mb-5">
                 <?php the_content() ?>
 
 <!-- Certificates block-->
@@ -124,17 +124,18 @@
 
     if ($certificates) {
 ?>
-                <table class="table">
-                    <thead class="bg-primary text-white">
-                    <tr class="text-center">
-                        <th scope="col" class="align-middle">Назва</th>
-                        <th scope="col" class="align-middle">Тип документу</th>
-                        <th scope="col" class="align-middle">Платформа</th>
-                        <th scope="col" class="align-middle">К-ть годин</th>
-                        <th scope="col" class="align-middle">Дата видачі</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+				<div style="overflow-x:auto;">
+					<table class="table">
+						<thead class="bg-primary text-white">
+						<tr class="text-center">
+							<th scope="col" class="align-middle">Назва</th>
+							<th scope="col" class="align-middle">Тип документу</th>
+							<th scope="col" class="align-middle">Платформа</th>
+							<th scope="col" class="align-middle">К-ть годин</th>
+							<th scope="col" class="align-middle">Дата видачі</th>
+						</tr>
+						</thead>
+						<tbody>
 <?php
         foreach( $certificates as $certificate ) {
             setup_postdata( $certificate );
@@ -145,12 +146,12 @@
             $platforms = get_the_platform($certificate);
             // print_r(get_the_platform($certificate));
 ?>
-                        <tr class="text-center">
-                        <td class="text-left">
-                            <a href="<?php echo $fields['link']; ?>" target="_blank"><?php echo $certificate->post_title; ?></a>
-                        </td>
-                        <td><?php echo $fields['type_doc']; ?></td>
-                        <td>
+							<tr class="text-center">
+							<td class="text-left">
+								<a href="<?php echo $fields['link']; ?>" target="_blank"><?php echo $certificate->post_title; ?></a>
+							</td>
+							<td><?php echo $fields['type_doc']; ?></td>
+							<td>
 <?php
                             if ($platforms) {
                                 $platform_link = get_fields($platforms[0])['link'];
@@ -163,25 +164,26 @@
                                 echo '---';
                             }
 ?>
-                        </td>
-                        <td>
-                        <?php 
-                            $number_of_hours = $fields['number_of_hours'];
-                            if ($fields['number_of_hours']) {
-                                echo $number_of_hours;
-                            } else {
-                                echo '---';
-                            }
-                        ?>
-                        </td>
-                        <td><?php echo get_format_date($certificate->post_date); ?></td>
-                        
-                    </tr>
+							</td>
+							<td>
+							<?php 
+								$number_of_hours = $fields['number_of_hours'];
+								if ($fields['number_of_hours']) {
+									echo $number_of_hours;
+								} else {
+									echo '---';
+								}
+							?>
+							</td>
+							<td><?php echo get_format_date($certificate->post_date); ?></td>
+							
+						</tr>
 <?php
         }
     ?>
-                    </tbody>
-                </table>
+						</tbody>
+					</table>
+				</div>
 <?php
     }
         wp_reset_postdata();
