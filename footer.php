@@ -44,7 +44,7 @@
                 <i class="fa fa-phone-alt text-primary footer-ico"></i>
                 <div class="pl-3">
                     <h5 class="text-white">телефон</h5>
-                    <p><a href="tel:0532590214" style="color:white">0532 590214</a></p>
+                    <p><a href="tel:0532590214" style="color:white">099 121 48 64</a></p>
                 </div>
             </div>
         </div>

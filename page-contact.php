@@ -50,7 +50,7 @@
                     <i class="fa fa-phone-alt d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle" style="width: 45px; height: 45px;"></i>
                     <div class="pl-3">
                         <h5>телефон</h5>
-                        <p>0532 590214</p>
+                        <p>099 121 48 64</p>
                     </div>
                 </div>
                 <div class="d-flex">
