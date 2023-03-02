@@ -3,7 +3,7 @@
 <!-- Detail Start -->
 <div class="container pb-5">
     <div class="row pt-5">
-        <div class="col-lg-8" data-aos="fade-up">
+        <div class="col-lg-8" id="new_content" data-aos="fade-up">
             <div class="d-flex flex-column text-left mb-3">
                 <p class="section-title pr-5"><span class="pr-2">Сторінка новини</span></p>
 
