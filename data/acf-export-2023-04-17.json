@@ -1,0 +1,718 @@
+[
+    {
+        "key": "group_630c773dbd16b",
+        "title": "вчитель\/ка",
+        "fields": [
+            {
+                "key": "field_630c783c25d1e",
+                "label": "вчитель\/ка",
+                "name": "is_teacher",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_630c787d25d1f",
+                "label": "уроки",
+                "name": "lessons",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_630c783c25d1e",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "математики": "математики",
+                    "фізичної культури": "фізичної культури",
+                    "інформатики": "інформатики",
+                    "ще чогось": "ще чогось"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630bdab83f1b0",
+        "title": "деталі зручності",
+        "fields": [
+            {
+                "key": "field_630bdb0c8b3a2",
+                "label": "іконка",
+                "name": "class_name_icon",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "001-swing": "001-swing",
+                    "002-bricks": "002-bricks",
+                    "003-feeding-bottle": "003-feeding-bottle",
+                    "004-balloons": "004-balloons",
+                    "005-marker": "005-marker",
+                    "006-spinning-top": "006-spinning-top",
+                    "007-sandbox": "007-sandbox",
+                    "008-tambourine": "008-tambourine",
+                    "009-bib": "009-bib",
+                    "010-slide": "010-slide",
+                    "011-mat": "011-mat",
+                    "012-kite": "012-kite",
+                    "013-brush": "013-brush",
+                    "014-blackboard": "014-blackboard",
+                    "015-potty": "015-potty",
+                    "016-apple": "016-apple",
+                    "017-toy-car": "017-toy-car",
+                    "018-ball": "018-ball",
+                    "019-pencil": "019-pencil",
+                    "020-rattle": "020-rattle",
+                    "021-juice-box": "021-juice-box",
+                    "022-drum": "022-drum",
+                    "023-girl": "023-girl",
+                    "024-shape-toy": "024-shape-toy",
+                    "025-sandwich": "025-sandwich",
+                    "026-paper-boat": "026-paper-boat",
+                    "027-xylophone": "027-xylophone",
+                    "028-kindergarten": "028-kindergarten",
+                    "029-clock": "029-clock",
+                    "030-crayons": "030-crayons",
+                    "031-bell": "031-bell",
+                    "032-book": "032-book",
+                    "033-blocks": "033-blocks",
+                    "034-popsicle": "034-popsicle",
+                    "035-table": "035-table",
+                    "036-boy": "036-boy",
+                    "037-toys": "037-toys",
+                    "038-locker": "038-locker",
+                    "039-seesaw": "039-seesaw",
+                    "040-puzzle": "040-puzzle",
+                    "041-abacus": "041-abacus",
+                    "042-synthesizer": "042-synthesizer",
+                    "043-teddy-bear": "043-teddy-bear",
+                    "044-scissors": "044-scissors",
+                    "045-cookies": "045-cookies",
+                    "046-bucket": "046-bucket",
+                    "047-backpack": "047-backpack",
+                    "048-paper-plane": "048-paper-plane",
+                    "049-cutlery": "049-cutlery",
+                    "050-fence": "050-fence"
+                },
+                "default_value": "001-swing",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_630bdccd8b3a3",
+                "label": "номер показу",
+                "name": "mass",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "facility"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630be1eb98932",
+        "title": "деталі коментаря",
+        "fields": [
+            {
+                "key": "field_630be23519973",
+                "label": "фото",
+                "name": "photo",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_630be26819974",
+                "label": "професія",
+                "name": "profession",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "testimonial"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630e6a26cd95a",
+        "title": "деталі новини",
+        "fields": [
+            {
+                "key": "field_630e6a374978a",
+                "label": "автор",
+                "name": "author",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": "news_author"
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_643d0f99f432e",
+                "label": "попередній перегляд новин (url of image)",
+                "name": "news_preview",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": "news_preview"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "field",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630b99307768a",
+        "title": "деталі оголошення",
+        "fields": [
+            {
+                "key": "field_630b995e78e0a",
+                "label": "стиль",
+                "name": "style",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary": "primary",
+                    "secondary": "secondary",
+                    "success": "success",
+                    "danger": "danger",
+                    "warning": "warning",
+                    "info": "info",
+                    "light": "light",
+                    "dark": "dark"
+                },
+                "default_value": "primary",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_630b99c378e0b",
+                "label": "публікувати?",
+                "name": "is_published",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "alerts"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630cdf075ffe1",
+        "title": "картинка",
+        "fields": [
+            {
+                "key": "field_630cdf58ff851",
+                "label": "картинка",
+                "name": "image",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "category"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630c6c4eac47b",
+        "title": "основна інформація",
+        "fields": [
+            {
+                "key": "field_630c6cd2c4edb",
+                "label": "Стать",
+                "name": "sex",
+                "type": "radio",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "жіноча": "жіноча",
+                    "чоловіча": "чоловіча"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "жіноча",
+                "layout": "horizontal",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_630c6dc93c560",
+                "label": "Фото",
+                "name": "photo",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_630c6d783c55f",
+                "label": "Життєве кредо",
+                "name": "life_credo",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_630c6c5ec4eda",
+                "label": "Працює",
+                "name": "is_working",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630c75af213a1",
+        "title": "адміністрація",
+        "fields": [
+            {
+                "key": "field_630c75bedede7",
+                "label": "адміністрація",
+                "name": "is_administration",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_630c75e7dede8",
+                "label": "посада",
+                "name": "position",
+                "type": "radio",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_630c75bedede7",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Директор гімназії": "Директор гімназії",
+                    "Заступник директора з виховної роботи": "Заступник директора з виховної роботи",
+                    "Заступник директора з навчально-виховної роботи": "Заступник директора з навчально-виховної роботи"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 2,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_630c6e3be13f7",
+        "title": "посилання на соціальні мережі",
+        "fields": [
+            {
+                "key": "field_630c6e4305e43",
+                "label": "facebook",
+                "name": "facebook",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_630c6e8f05e44",
+                "label": "youtube",
+                "name": "youtube",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_630f02ca6fdf6",
+                "label": "blogger",
+                "name": "blogger",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 10,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

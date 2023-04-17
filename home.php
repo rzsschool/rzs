@@ -130,10 +130,15 @@
 <?php 
                 $thumbnail = get_the_post_thumbnail_url();
                 $categories = get_the_category($post->ID);
+                $news_preview = get_field('news_preview');
                 if ($thumbnail) {
 ?>
                             <img class="card-img-top mb-2" src="<?php echo $thumbnail ?>" alt="post_img">
 <?php
+                } elseif ($news_preview) {
+?>
+                            <img class="card-img-top mb-2" src="<?php echo $news_preview; ?>" alt="post_img">
+<?php   
                 } else {
                     $image = get_field('image', $categories[0]);
 ?>
