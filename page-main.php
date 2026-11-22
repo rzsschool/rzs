@@ -6,7 +6,7 @@
         <div class="col-lg-6 text-center text-lg-left" data-aos="fade-right" >
         <!-- <div class="col-lg-6 text-center text-lg-left"> -->
             <h4 class="text-white mb-4 mt-5 mt-lg-0">Вас вітає</h4>
-            <h1 class="text-white">Комунальний заклад "Розсошенська гімназія<br> Щербанівської сільської ради
+            <h1 class="text-white">Комунальний заклад "Розсошенський ліцей<br> Щербанівської сільської ради
                 <br>Полтавського району<br> Полтавської області"!</h1>
             <!-- <p class="text-white mb-4">Ознайомитись з картою сайту</p>
             <a href="" class="btn btn-secondary mt-1 py-3 px-5">тисніть тут</a> -->
