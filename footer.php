@@ -4,8 +4,9 @@
         <div class="col-lg-3 col-md-6 mb-5">
             <h3 class="text-primary mb-4">Головна ідея</h3>
 
-            <p>Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor, elitr rebum duo
-                est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.</p>
+            <p>Ми допомагаємо учням відкривати свої здібності, мислити самостійно й застосовувати знання на практиці. 
+                У нашому ліцеї є місце для запитань, нових ідей і спільних проєктів. Тут учні вчаться робити власний
+                вибір і впевнено планувати майбутнє.</p>
             <div class="d-flex justify-content-start mt-4">
                 <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                    style="width: 38px; height: 38px;" href="https://www.facebook.com/profile.php?id=100037746100748"
